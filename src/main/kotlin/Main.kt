@@ -3,10 +3,13 @@ import org.jsoup.Jsoup
 import kotlin.system.exitProcess
 
 fun main(argc: Array<String>) {
-	val options: Options = Options.optionsFromCLA(argc).getOrElse {
+
+	val options = Options.optionsFromCLA(argc).getOrElse {
 		println(it.message)
 		exitProcess(1)
 	}
+	println("options: $options")
+
 	var currentChapter = options.start
 	var url = options.baseUrl + formatRemotePath(options.remotePath, currentChapter)
 	println("url = $url")

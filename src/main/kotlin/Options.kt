@@ -34,7 +34,7 @@ data class Options(
 
 				} else if (validPlaceholder(argc[i]) && Regex("""--remote-path=[^\s|^=]+""").matches(argc[i])) {
 					// Option: --remote-path
-					remotePath = argc[i]
+					remotePath = argc[i].split("=").last()
 
 				} else if (Regex("""--target-dir=[^\s|^=]+""").matches(argc[i])) {
 					// Option: --target-dir
